@@ -40,11 +40,17 @@ class bowlingTest {
 
     @Test
     public void testOneStrike(){
-        g.roll(10); //Strike
+        rollStrike();
         g.roll(3);
         g.roll(6);
         rollMany(16, 0);
         assertEquals(28,g.score());
+    }
+
+    @Test
+    public void testPerfectGame(){
+        rollMany(12, 10);
+        assertEquals(300, g.score());
     }
 
     private void rollMany(int n, int pins){
@@ -56,5 +62,9 @@ class bowlingTest {
     private void rollSpare(){
         g.roll(5);
         g.roll(5);
+    }
+
+    private void rollStrike(){
+        g.roll(10);
     }
 }
